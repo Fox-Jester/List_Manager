@@ -1,0 +1,5 @@
+<span class="task-wrapper">
+  <span class="checkbox"></span>
+  <p></p>
+  <i class="fa-solid fa-x task-delete"></i
+></span>

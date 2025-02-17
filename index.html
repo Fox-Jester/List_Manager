@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>List Manager</title>
+
+    <script
+      src="https://kit.fontawesome.com/e186fe6458.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-container">
+      <div class="cosmetic-container">
+        <div class="cosmetic-edge"></div>
+        <div class="cosmetic-center"></div>
+        <div class="cosmetic-edge"></div>
+      </div>
+      <div class="control-panel">
+        <div class="control-wrapper">
+          <span class="main-tag"><h1>List Manager</h1></span>
+          <div class="btn-box">
+            <i id="color-btn" class="fa-solid fa-droplet fa-border"></i>
+            <span id="storage-btn"><h2>Storage</h2></span>
+            <i id="add-list" class="fa-solid fa-plus fa-border"></i>
+          </div>
+          <div id="storage-container" class="hidden"></div>
+        </div>
+      </div>
+      <div id="list-container"></div>
+    </div>
+
+    <script src="dest/script.js"></script>
+  </body>
+</html>

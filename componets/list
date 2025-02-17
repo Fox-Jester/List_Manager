@@ -1,0 +1,16 @@
+<div class="list">
+  <div class="list-top">
+    <i id="list-store" class="fa-solid fa-box-archive fa-border"></i>
+    <input class="list-name" type="text" placeholder="List Name" />
+    <i id="list-delete" class="fa-solid fa-x fa-border"></i>
+  </div>
+  <div class="list-bottom">
+    <div class="input-group">
+      <input class="input" type="text" />
+      <button class="add-btn">ADD</button>
+    </div>
+    <div class="task-box"></div>
+    <span class="task-tracker"><p><p id="checked-counter">0</p> / <p id="task-counter">0</p> Tasks Completed</p></span>
+    </div>
+  </div>
+</div>

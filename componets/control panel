@@ -1,0 +1,11 @@
+<div class="control-panel">
+  <div class="control-wrapper">
+    <span class="main-tag"><h1>List Manager</h1></span>
+    <div class="btn-box">
+      <i class="fa-solid fa-image fa-border"></i>
+      <span><h2>Storage</h2></span>
+      <i class="fa-solid fa-plus fa-border"></i>
+    </div>
+    <div id="storage-container"></div>
+  </div>
+</div>
