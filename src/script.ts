@@ -2,13 +2,20 @@
 
 const App = {
     $: {
+        
         page: document.querySelector(".page-container"),
+
+        colorBtn: document.querySelector("#color-btn"),
         addListBtn: document.querySelector("#add-list"),
 
         storageBtn: document.querySelector("#storage-btn"),
         storageContainer: document.querySelector("#storage-container"),
 
         listContainer: document.querySelector("#list-container"),
+
+        
+
+        pageBottom: document.querySelector(".page-bottom"),
 
         idCounter: 0
     },
@@ -46,34 +53,25 @@ const App = {
             }
         })
 
+
+        this.$.colorBtn?.addEventListener("click", App.colorChange);
+
         this.$.addListBtn?.addEventListener("click", (e) => {
             const exist = document.querySelector(".list")
             if(exist){
-                /* CHANGE TO SWAP LATER_______________*/
-                alert("only 1 list up at a time");
+                const nameInput = document.querySelector<HTMLInputElement>(".list-name")
+                const taskBox = document.querySelector<HTMLDivElement>(".task-box")
+                if(nameInput!.value || taskBox!.childElementCount > 0){
+                    App.storingList();
+                    App.createList();
+                }
+                else{
+                    App.notify("Already have a List")
+                }
+                
             }
             else{
-                const list = document.createElement("div")
-                list.classList.add("list");
-                list.innerHTML = `
-                <div class="list-top">
-                <i id="store-list" class="fa-solid fa-box-archive fa-border"></i>
-                <input class="list-name" type="text" placeholder="List Name" />
-                <i id="list-delete" class="fa-solid fa-x fa-border"></i>
-                </div>
-                <div class="list-bottom">
-                <div class="input-group">
-                <input class="input" type="text" />
-                <button class="add-btn">ADD</button>
-                </div>
-                <div class="task-box"></div>
-                <span class="task-tracker"><p><p id="checked-counter">0</p> / <p id="task-counter">0</p> Tasks Completed</p></span>
-                </div>
-                </div>`
-
-                App.$.listContainer?.appendChild(list);
-                App.applyListListeners()
-                App.save()
+              App.createList();
             }
         })
 
@@ -84,6 +82,30 @@ const App = {
         })
 
 
+    },
+
+    createList(){
+        const list = document.createElement("div")
+        list.classList.add("list");
+        list.innerHTML = `
+        <div class="list-top">
+        <i id="store-list" class="fa-solid fa-box-archive fa-border"></i>
+        <input class="list-name" type="text" placeholder="List Name"  maxlength="40"/>
+        <i id="list-delete" class="fa-solid fa-x fa-border"></i>
+        </div>
+        <div class="list-bottom">
+        <div class="input-group">
+        <input class="input" type="text" maxlength="210" />
+        <button class="add-btn">ADD</button>
+        </div>
+        <div class="task-box"></div>
+        <span class="task-tracker"><p><p id="checked-counter">0</p> / <p id="task-counter">0</p> Tasks Completed</p></span>
+        </div>
+        </div>`
+
+        App.$.listContainer?.appendChild(list);
+        App.applyListListeners()
+        App.save()
     },
 
     applyListListeners(){
@@ -98,6 +120,7 @@ const App = {
             const parent = deleteBtn.parentElement;
             parent?.parentElement?.remove();
             App.save()
+            App.notify("List Deleted")
         })
 
 
@@ -114,8 +137,15 @@ const App = {
 
 
         const input = document.querySelector<HTMLInputElement>(".input");
-        const addBtn = document.querySelector(".add-btn");
+        const addBtn = document.querySelector<HTMLButtonElement>(".add-btn");
         const regex = /\S/
+
+        input?.addEventListener("keydown", (e) => {
+            const KeyboardEvent = <KeyboardEvent>e
+            if(KeyboardEvent.key === "Enter"){
+                addBtn!.click()
+            }
+        })
         
         addBtn?.addEventListener("click", (e) => {
             if(input?.value.match(regex)){
@@ -149,6 +179,8 @@ const App = {
             App.$.storageContainer!.innerHTML = html
         }
 
+        App.loadColor()
+
 
         App.taskChecker()
         App.checkboxChecker()
@@ -167,7 +199,43 @@ const App = {
             this.$.idCounter = Number(localStorage.getItem("idCounterData"));
         }
     },
+
+    saveColor(){
+        const color = <string>this.$.page?.classList.item(1)
+        localStorage.setItem("colorData", color);
+    },
+
+    loadColor(){
+        if(localStorage.getItem("colorData")){
+            const color = localStorage.getItem("colorData");
+            this.$.page?.classList.remove("color-palette-A");
+            this.$.page?.classList.add(`${color}`)
+
+        }
+
+    },
+
+    colorChange(){
+        
+        const currentColor = App.$.page!.classList.item(1);
+        let nextColor: string = ""
+        if(currentColor === "color-palette-A"){
+            nextColor = "color-palette-B"
+        } 
+        else if(currentColor === "color-palette-B"){
+            nextColor = "color-palette-C"
+        } 
+        else if(currentColor === "color-palette-C"){
+            nextColor = "color-palette-A"
+        } 
+
+        App.$.page?.classList.replace(`${currentColor}`, `${nextColor}`);
+        App.saveColor()
+    },
+
     storingList(){
+
+        App.notify("List added to storage");
         const list = document.querySelector(".list")
         const taskBox = document.querySelector(".task-box");
         const tasks = taskBox?.innerHTML
@@ -183,8 +251,9 @@ const App = {
         }
         list?.remove()
         App.boxify(App.$.idCounter, name)
+        App.save()
         localStorage.setItem(`${App.$.idCounter}`, `${tasks}`)
-        App.applyBoxListener(App.$.idCounter);
+        
         App.$.idCounter++
         App.saveIdCounter()
     },
@@ -198,21 +267,27 @@ const App = {
         span.appendChild(p);
         this.$.storageContainer?.appendChild(span);
 
-        App.save()
 
-    },
-
-    applyBoxListener(id: number){
-        const listBox = document.getElementById(`${id}`);
-
-        listBox?.addEventListener("click", (e) => {
-            const p = listBox.firstChild;
+        
+    
+        span.addEventListener("click", (e) => {
+            const p = span.firstChild;
             const name = <HTMLParagraphElement>p
-                App.listify(id, name.innerHTML)
-                listBox.remove()
 
+
+                if(this.$.listContainer!.childElementCount > 0){
+                    App.storingList()
+                        }
+                    
+                        App.listify(number, name.innerHTML)
+                        span.remove();
+                        App.storageChecker();
+                        App.save();
+                    
         });
     },
+
+    
     applyBoxListeners(){
         if(document.querySelectorAll(".list-box")){
             const listBoxes = document.querySelectorAll(".list-box")
@@ -222,8 +297,16 @@ const App = {
                         const id = Number(box.id);
                         const p = box.firstChild;
                         const name = <HTMLParagraphElement>p
-                            App.listify(id, name.innerHTML)
-                            box.remove()
+
+                        if(this.$.listContainer!.childElementCount > 0){
+                            App.storingList()
+                        }
+                        
+                        App.listify(id, name.innerHTML)
+                        box.remove();
+                        App.storageChecker();
+                        App.save();
+                        
             
                     });
 
@@ -241,12 +324,12 @@ const App = {
 
         list.innerHTML = `<div class="list-top">
                             <i id="store-list" class="fa-solid fa-box-archive fa-border"></i>
-                            <input class="list-name" type="text" value="${name}" />
+                            <input class="list-name" type="text" value="${name}" maxlength="40"/>
                             <i id="list-delete" class="fa-solid fa-x fa-border"></i>
                             </div>
                             <div class="list-bottom">
                             <div class="input-group">
-                            <input class="input" type="text" />
+                            <input class="input" type="text" maxlength="210"/>
                             <button class="add-btn">ADD</button>
                             </div>
                             <div class="task-box">${localStorage.getItem(`${id}`)}</div>
@@ -259,7 +342,7 @@ const App = {
         App.taskChecker()
         App.checkboxChecker()
    
-        App.save()
+       
         
         App.applyListListeners()
        
@@ -313,16 +396,41 @@ const App = {
 
 
         }
+    },
+
+    storageChecker(){
+        if(App.$.storageContainer?.childElementCount === 0){
+            App.$.storageContainer.classList.toggle("hidden");
+        }
+    },
+
+    notify(notif: string){
+
+        const span = document.createElement("span");
+
+        span.classList.add("notification");
+        span.classList.add("fade-in");
+
+        const p = <HTMLParagraphElement>document.createElement("p");
+        p.innerHTML = notif;
+        
+        span.appendChild(p);
+        this.$.pageBottom?.appendChild(span);
+
+        setTimeout(() => {
+            span.remove();
+        }, 1500)
+
+
+        
+
+        
+
+       
+        
+       
     }
     
-
-
-
-
-  
-
- 
-   
 
    
 }
