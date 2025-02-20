@@ -1,13 +1,13 @@
 
 :root {
     --border-size: 10px;
-    --i-size: 44px;
+    --i-size: 2.75rem;
 
 
     --primary-color:  rgb(255, 191, 72);
     --primary-text-color: white;
     --primary-hover: orange;
-    --Primary-box-hover: deepskyblue;
+    --primary-box-hover: deepskyblue;
     --primary-gradient: linear-gradient(130deg, rgb(150, 215, 255), lightskyblue);
     --primary-controlpanel: dodgerblue;
     --primary-list-top: dodgerblue;
@@ -304,6 +304,13 @@
     
 }
 
+
+@media screen and (min-width: 1700px){
+
+
+    
+}
+
 /* LIST ****************/
 
 #list-container{
@@ -325,10 +332,13 @@
 
 .list ::-webkit-scrollbar-track{
     background: rgba(70, 69, 69, 0.3);
+    border-radius: 100vw;
 }
 
 .list ::-webkit-scrollbar-thumb{
     background: rgba(37, 37, 37, 0.3);
+    border-radius: 100vw;
+    background-color: var(--primary-color);
 }
 
 .list input {
@@ -339,17 +349,18 @@
 }
 
 .list-top i {
+    
     font-size: 1.6rem;
     color: var(--primary-text-color);
     text-shadow: 0 0 1px black;
     background-color: var(--primary-color);
     border-width: 0;
     border-radius: var(--border-size);
-
-    padding: 0.6rem;
-    box-shadow: 0 0 5px black;
     height: var(--i-size);
     width: var(--i-size);
+    
+    padding: 0.6rem;
+    box-shadow: 0 0 5px black;
     text-align: center;
 }
 
@@ -452,8 +463,6 @@
 
 
 
-
-
 .checkbox {
   
     display: block;
@@ -520,6 +529,11 @@
     display: inline;
 }
 
+
+@media screen and (min-width:1700px){
+
+    
+}
 
 
 

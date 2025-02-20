@@ -1,5 +1,211 @@
-media querys.
 
+
+
+
+
+
+
+/_______media querys________/
+
+
+
+
+
+.notification {
+
+    padding: 1rem;
+    border-radius: 20px;
+
+}
+
+
+__________CONTROL PANEL_________________________________\\\\\\\\\\\\\\\\\\\\
+
+.control-panel {
+    border-radius: 10px;
+    padding: 0.2rem;
+    left: 2rem;
+    top: 2rem;
+    z-index: 1;
+
+    width: 15rem;
+
+}
+
+
+.control-wrapper h1 {
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+.main-tag{
+    padding: 0.1rem 0.5rem;
+    border-radius: var(--border-size);
+    margin-bottom: 0.2rem;
+    
+}
+
+
+___________BTN-BOX____________________________________
+
+.btn-box {
+    padding: 0.5rem;
+    margin: 0 0.3rem;
+    border-radius: var(--border-size);
+}
+
+
+.btn-box span {
+    margin: 0 0.6rem;
+    padding: 0.3rem 0.5rem;
+    border-radius: var(--border-size);
+
+}
+
+
+.btn-box i {
+    width: var(--i-size);
+    height: var(--i-size);
+    font-size: 2rem;
+    border-radius: var(--border-size);
+}
+
+
+
+________________STORAGE-CONTAINER_________________________
+
+#storage-container {
+    height: 60vh;
+    margin-top: 1rem;
+
+    
+}
+
+
+
+
+#storage-container span{
+
+    font-size: 1.2rem;
+    margin: 0.5rem 0.3rem;
+    padding: 0.2rem 0.5rem;
+
+}
+
+
+
+________LIST-TEMPLATE__________________\\\\\\\\\\\\\\\\\\\
+
+#list-container{
+    z-index: 1;
+    width: 40%;
+}
+
+.list {
+    border-radius: var(--border-size);
+    width: 100%;
+    z-index: 1;
+}
+
+
+
+***all list inputs***\
+
+.list input {
+    padding: 0.3rem 0.5rem;
+}
+
+
+
+***List Top***______________________
+
+.list-top {
+    padding:  0.8rem 0.5rem;
+}
+
+
+.list-top i {
+    font-size: 1.6rem;
+    border-radius: var(--border-size);
+    padding: 0.6rem;
+    height: var(--i-size);
+    width: var(--i-size);
+
+}
+
+.list-name {
+    margin: 0 8px;
+    font-size: 1.4rem;
+    border-radius: var(--border-size);
+
+}
+
+
+***LIST BOTTOM***____________________________
+
+.list-bottom {
+    padding: 0.5rem;
+}
+.input-group{
+    width: 95%;
+    margin-bottom: 1rem;
+}
+
+.input{
+    font-size: 1.2rem;
+}
+
+.add-btn{
+    font-size: 1.2rem;
+    padding: 0.3rem 0.5rem;
+    border-radius: var(--border-size);
+}
+
+
+
+***TASK-BOX***______________________________
+
+.task-box {
+    width: 95%;
+    height: 20rem;
+    padding: 0.3rem;
+    gap: 1rem;
+}
+
+
+
+.task-wrapper p {
+    padding: 0 1rem;
+}
+
+.task-wrapper {
+    padding: 0.3rem 0;
+
+}
+
+
+
+.checkbox {
+
+    border-radius: 5px;
+    height: 25px;
+    width: 25px;
+
+    margin-left: 5px;
+
+  }
+
+ 
+
+.task-box .task-delete{ 
+    margin-right: 10px;
+    font-size: 1rem;
+}
+
+
+.task-tracker {
+    padding: 0.5rem 0 0;
+}
 
 
 
