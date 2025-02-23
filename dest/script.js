@@ -87,7 +87,10 @@ const App = {
     },
     applyListListeners() {
         const listStoreBtn = document.querySelector("#store-list");
-        listStoreBtn === null || listStoreBtn === void 0 ? void 0 : listStoreBtn.addEventListener("click", App.storingList);
+        listStoreBtn === null || listStoreBtn === void 0 ? void 0 : listStoreBtn.addEventListener("click", (e) => {
+            App.storingList();
+            App.notify("List Stored");
+        });
         const deleteBtn = document.querySelector("#list-delete");
         deleteBtn === null || deleteBtn === void 0 ? void 0 : deleteBtn.addEventListener("click", (e) => {
             var _a;
@@ -184,7 +187,6 @@ const App = {
         App.saveColor();
     },
     storingList() {
-        App.notify("List added to storage");
         const list = document.querySelector(".list");
         const taskBox = document.querySelector(".task-box");
         const tasks = taskBox === null || taskBox === void 0 ? void 0 : taskBox.innerHTML;
@@ -215,6 +217,7 @@ const App = {
             const name = p;
             if (this.$.listContainer.childElementCount > 0) {
                 App.storingList();
+                App.notify("List Swapped");
             }
             App.listify(number, name.innerHTML);
             span.remove();
@@ -232,6 +235,7 @@ const App = {
                     const name = p;
                     if (this.$.listContainer.childElementCount > 0) {
                         App.storingList();
+                        App.notify("List Swapped");
                     }
                     App.listify(id, name.innerHTML);
                     box.remove();

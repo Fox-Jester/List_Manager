@@ -111,7 +111,10 @@ const App = {
     applyListListeners(){
 
         const listStoreBtn = document.querySelector("#store-list");
-        listStoreBtn?.addEventListener("click", App.storingList)
+        listStoreBtn?.addEventListener("click", (e) => {
+            App.storingList()
+            App.notify("List Stored")
+        })
 
 
         const deleteBtn = document.querySelector("#list-delete");
@@ -235,7 +238,7 @@ const App = {
 
     storingList(){
 
-        App.notify("List added to storage");
+        
         const list = document.querySelector(".list")
         const taskBox = document.querySelector(".task-box");
         const tasks = taskBox?.innerHTML
@@ -277,6 +280,7 @@ const App = {
 
                 if(this.$.listContainer!.childElementCount > 0){
                     App.storingList()
+                    App.notify("List Swapped")
                         }
                     
                         App.listify(number, name.innerHTML)
@@ -300,6 +304,7 @@ const App = {
 
                         if(this.$.listContainer!.childElementCount > 0){
                             App.storingList()
+                            App.notify("List Swapped")
                         }
                         
                         App.listify(id, name.innerHTML)

@@ -3,6 +3,13 @@
 
 
 
+add list swap notification
+
+
+add aniumations for smoother transition from storage.
+
+
+
 
 
 /_______media querys________/
@@ -15,7 +22,6 @@
 
     padding: 1rem;
     border-radius: 20px;
-
 }
 
 
@@ -46,7 +52,7 @@ __________CONTROL PANEL_________________________________\\\\\\\\\\\\\\\\\\\\
 }
 
 
-___________BTN-BOX____________________________________
+/***BTN-BOX***/
 
 .btn-box {
     padding: 0.5rem;
@@ -72,7 +78,7 @@ ___________BTN-BOX____________________________________
 
 
 
-________________STORAGE-CONTAINER_________________________
+/***STORAGE-CONTAINER***/
 
 #storage-container {
     height: 60vh;
@@ -117,7 +123,7 @@ ________LIST-TEMPLATE__________________\\\\\\\\\\\\\\\\\\\
 
 
 
-***List Top***______________________
+/***List Top***/
 
 .list-top {
     padding:  0.8rem 0.5rem;
@@ -141,7 +147,7 @@ ________LIST-TEMPLATE__________________\\\\\\\\\\\\\\\\\\\
 }
 
 
-***LIST BOTTOM***____________________________
+/***LIST BOTTOM***/
 
 .list-bottom {
     padding: 0.5rem;
@@ -163,11 +169,11 @@ ________LIST-TEMPLATE__________________\\\\\\\\\\\\\\\\\\\
 
 
 
-***TASK-BOX***______________________________
+/***TASK-BOX***/
 
 .task-box {
     width: 95%;
-    height: 20rem;
+    height: 30rem;
     padding: 0.3rem;
     gap: 1rem;
 }
@@ -176,6 +182,7 @@ ________LIST-TEMPLATE__________________\\\\\\\\\\\\\\\\\\\
 
 .task-wrapper p {
     padding: 0 1rem;
+    font-size: 1.2rem;
 }
 
 .task-wrapper {

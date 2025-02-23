@@ -156,15 +156,20 @@
     box-shadow: 0 0 5px black;
     border-radius: 10px;
     overflow: hidden;
-    padding: 0.2rem;
     display: inline-block;
     text-align: center;
     position: absolute;
-    left: 2rem;
+    left: 3rem;
     top: 2rem;
-    z-index: 1;
-
+    z-index: 2;
+    padding: 0.2rem 0.5rem 0.5rem;
+    
     width: 15rem;
+    
+}
+
+.page-container:has(.hidden) .control-panel{
+    padding: 0.2rem;
 
 }
 
@@ -243,7 +248,7 @@
 
 #storage-container {
     background-color: rgba(24, 24, 24, 0.5);
-    height: 60vh;
+    height: 50vh;
     
     position: relative;
     margin-top: 1rem;
@@ -251,6 +256,7 @@
     flex-direction: column;
     overflow-x: hidden;
     overflow-y: auto;
+
     
     
 }
@@ -300,22 +306,220 @@
 
 
 #storage-container.hidden{
-   display: none;
+    display: none;
     
 }
 
 
-@media screen and (min-width: 1700px){
 
+
+
+@media screen and (max-width:1200px){
+    
+    
+    
+    .control-panel {
+        
+        
+        left: 20%;
+        top: 1rem;
+        
+        
+        width: 13rem;
+        
+    }
+    
+    
+    
+    .control-wrapper h1 {
+        font-size: 1.6rem;
+    }
+    
+    
+    
+    
+    
+    .btn-box i {
+        width: 2.25rem;
+        height: 2.25rem;
+        font-size: 1.6rem;
+    }
+    .btn-box span {
+        margin: 0 0.3rem;
+        padding: 0.1rem 0.5rem;
+        border-radius: var(--border-size);
+    
+    }
+    
+    #storage-container span{
+
+        font-size: 1rem;
+        margin: 0.5rem 0.3rem;
+        padding: 0.2rem 0.5rem;
+    
+    }
 
     
 }
+
+@media screen and (max-width:800px) {
+
+    .control-wrapper h1 {
+        font-size: 1.6rem;
+    }
+    
+    .control-panel {
+       
+  
+        left: 10%;
+        top: 1rem;
+      
+    
+        width: 12.5rem;
+    
+    }
+
+    .btn-box {
+        padding: 0.3rem 0;
+        margin: 0;
+        border-radius: var(--border-size);
+    }
+    
+    
+
+    
+#storage-container {
+    height: 50vh;
+    margin-top: 0.5rem;
+
+    
+}
+
+
+
+
+#storage-container span{
+
+    font-size: 1rem;
+    margin: 0.5rem 0.3rem;
+    padding: 0.2rem 0.5rem;
+
+}
+
+
+}
+
+@media screen and (max-width:600px) {
+    
+    .control-panel {
+        
+        left: 2.5%;
+
+        
+    }
+}
+
+@media screen and (max-width:500px) {
+    
+    .control-panel {
+        left: 2.5%;
+        padding: 0.2rem;
+        width: 8rem;
+    }
+    
+    .page-container:has(.hidden) .control-panel{
+        width: 10.5rem;
+    }
+    
+    .control-wrapper h1 {
+        font-size: 1rem;
+    }
+    
+    .page-container:has(.hidden) .control-wrapper h1{
+        font-size: 1.4rem;
+    }
+    
+
+    
+    
+    /***BTN-BOX***/
+    
+    .btn-box {
+        padding: 0.1rem 0;
+        
+    }
+    
+    .page-container:has(.hidden) .btn-box{
+        padding: 0.3rem 0;
+        margin: 0;
+        border-radius: var(--border-size);
+    }
+    
+    
+    .btn-box span {
+        border-radius: 5px;
+        font-size: 0.6rem;
+        padding: 0.1rem 0.1rem;
+    }
+    
+    .page-container:has(.hidden) .btn-box span{
+        margin: 0 0.2rem;
+        padding: 0.1rem 0.3rem;
+        font-size: 0.8rem;
+        border-radius: var(--border-size);
+        
+    }
+    
+    .btn-box i {
+        border-radius: 5px;
+        width: 1.6rem;
+        height: 1.6rem;
+        font-size: 1.2rem;
+     
+    }
+    
+    .page-container:has(.hidden) .btn-box i{
+        width: 2rem;
+        height: 2rem;
+        font-size: 1.4rem;
+    }
+    
+    
+    /***STORAGE-CONTAINER***/
+    
+    #storage-container {
+        height: 44vh;
+        margin-top: 0.5rem;
+    
+        
+    }
+
+    #storage-container::-webkit-scrollbar {
+        width: 0rem;
+    }
+    
+    
+    
+    
+    
+    #storage-container span{
+
+        font-size: 1rem;
+        margin: 0.5rem 0.3rem;
+        padding: 0.2rem 0.5rem;
+    
+    }
+}
+
+
 
 /* LIST ****************/
 
 #list-container{
     z-index: 1;
     width: 40%;
+    
+
 }
 
 .list {
@@ -421,7 +625,7 @@
     background-color: var(--primary-color);
     border: none;
     border-radius: var(--border-size);
-
+    
 }
 
 .add-btn:hover {
@@ -433,7 +637,7 @@
     display: flex;
     flex-direction: column;
     background-color: rgb(234, 234, 234);
-    height: 20rem;
+    height: 30rem;
     padding: 0.3rem;
     gap: 1rem;
     overflow: auto;
@@ -443,6 +647,7 @@
 
 
 .task-wrapper p {
+    font-size: 1.2rem;
     display: inline;
     word-break: break-all;
     padding: 0 1rem;
@@ -454,17 +659,17 @@
     
     
     padding: 0.3rem 0;
-   
+    
     display: flex;
     align-items: center;
     justify-content: space-between;
-
+    
 }
 
 
 
 .checkbox {
-  
+    
     display: block;
     cursor: pointer;
     border-radius: 5px;
@@ -477,34 +682,34 @@
     
     
     
-  }
+}
 
-  .checkbox:hover {
+.checkbox:hover {
     background-color: #ccc;
-  }
+}
 
-  .checkbox.checked {
+.checkbox.checked {
     background-color: var(--primary-color);
-  }
+}
 
-  .checkbox.checked ~ p {
+.checkbox.checked ~ p {
     text-decoration: line-through;
     color: var(--primary-color);
     
-  }
+}
 
-  .checkmark{
+.checkmark{
     display: none;
     color: #eee;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-   
     
-  }
+    
+}
 
- 
+
 
 .checked .checkmark{
     display: inline-block;
@@ -530,12 +735,334 @@
 }
 
 
-@media screen and (min-width:1700px){
+@media screen and (max-width:1500px){
+    
+    
+    #list-container{
+        z-index: 1;
+        width: 50%;
+    }
+    
+    
+}
 
+@media screen and (max-width:1300px){
+    
+    
+    #list-container{
+        z-index: 1;
+        width: 50%;
+    
+    }
+    
+    
     
 }
 
 
+
+@media screen and (max-width:1200px){
+
+
+
+    
+    #list-container{
+        transform: scale(0.8);
+        margin-left: 20rem;
+        
+       
+    }
+
+    .page-container {
+        align-items: baseline;
+    }
+    
+    .page-container:has(.hidden) #list-container{
+        
+        margin-left: 0;
+        margin-top: 4rem;
+        width: 60%;
+        transform: scale(1);
+        transition: transform 0.5s;
+        
+    }
+
+    .page-container:has(.hidden) {
+        
+        align-items: center;
+        
+    }
+    
+
+    
+    
+}
+
+@media screen and (max-width:800px){
+
+
+
+    
+    #list-container{
+        width: 80%;
+        transform: scale(0.7);
+        margin-left: 15rem;
+    
+       
+    }
+    
+    .page-container:has(.hidden) #list-container{
+        
+        margin-left: 0;
+        margin-top: 4rem;
+        width: 80%;
+        transform: scale(1);
+        
+    }
+    
+  
+    
+    .list {
+        border-radius: var(--border-size);
+        width: 100%;
+        z-index: 1;
+    }
+    
+    
+   
+    
+    .list input {
+        padding: 0.3rem 0.5rem;
+    }
+    
+    
+    
+    /***List Top***/
+    
+    .list-top {
+        padding:  0.8rem 0.5rem;
+    }
+    
+    
+    .list-top i {
+
+        padding: 0.35rem;
+        width: 2.25rem;
+        height: 2.25rem;
+        font-size: 1.6rem;
+    
+    }
+    
+    .list-name {
+        margin: 0 8px;
+        font-size: 1.2rem;
+    
+    }
+    
+    
+    /***LIST BOTTOM***/
+    
+    .list-bottom {
+        padding: 0.5rem;
+    }
+    .input-group{
+        width: 95%;
+        margin-bottom: 1rem;
+    }
+    
+    .input{
+        font-size: 1rem;
+    }
+    
+    .add-btn{
+        font-size: 1rem;
+        padding: 0.3rem 0.5rem;
+        border-radius: var(--border-size);
+    }
+    
+    
+    
+    /***TASK-BOX***/
+    
+    .task-box {
+        width: 95%;
+        height: 30rem;
+        padding: 0.3rem;
+        gap: 0.8rem;
+    }
+    
+    
+    
+    .task-wrapper p {
+        padding: 0 1rem;
+        font-size: 1rem;
+    }
+    
+    .task-wrapper {
+        padding: 0.3rem 0;
+    
+    }
+    
+    
+    
+}
+
+@media screen and (max-width:600px) {
+    
+    #list-container{
+        width: 95%;
+        transform: scale(0.7);
+        margin-left: 15rem;
+    
+       
+    }
+    
+    .page-container:has(.hidden) #list-container{
+        
+        margin-left: 0;
+        margin-top: 4rem;
+        width: 95%;
+        transform: scale(1);
+        
+    }
+}
+
+@media screen and (max-width:500px) {
+    
+  
+
+    #list-container{
+        width: 100%;
+        transform: scale(0.5);
+        margin-left: 8rem;
+    
+        
+        margin-top: 0;
+       
+    }
+    
+    .page-container:has(.hidden) #list-container{
+        margin-top: 0;
+        margin-left: 0;
+        width: 95%;
+        transform: scale(1);
+        
+    }
+
+
+        
+    .list {
+        border-radius: var(--border-size);
+        width: 100%;
+        z-index: 1;
+    }
+    
+    
+   
+    
+    .list input {
+        padding: 0.1rem 0.1rem;
+    }
+    
+    
+    
+    /***List Top***/
+    
+    .list-top {
+        padding:  0.6rem 0.3rem;
+    }
+    
+    
+    .list-top i {
+
+        padding: 0.35rem;
+        width: 2rem;
+        height: 2rem;
+        font-size: 1.4rem;
+    
+    }
+    
+    .list-name {
+        margin: 0 2px;
+        font-size: 1.2rem;
+    
+    }
+    
+    
+    /***LIST BOTTOM***/
+    
+    .list-bottom {
+        padding: 0.3rem 0.1rem;
+    }
+    .input-group{
+        width: 95%;
+        margin-bottom: 0.5rem;
+    }
+    
+    .input{
+        font-size: 1rem;
+    }
+    
+    .add-btn{
+        font-size: 0.8rem;
+        padding: 0.3rem 0.5rem;
+        border-radius: var(--border-size);
+    }
+    
+    
+    
+    /***TASK-BOX***/
+    
+    .task-box {
+        width: 95%;
+        height: 25rem;
+        padding: 0.3rem;
+        gap: 0.8rem;
+    }
+
+    .task-box::-webkit-scrollbar {
+        width: 0.5rem;
+    }
+    
+    
+    
+    .task-wrapper p {
+        padding: 0 1rem;
+        font-size: 1rem;
+    }
+    
+    .task-wrapper {
+        padding: 0.3rem 0;
+    
+    }
+
+    .checkbox {
+
+        border-radius: 5px;
+        height: 20px;
+        width: 20px;
+    
+        margin-left: 5px;
+    
+      }
+    
+     
+    
+    .task-box .task-delete{ 
+        margin-right: 10px;
+        margin-top: 2px;
+        font-size: 0.8rem;
+    }
+
+
+    .task-tracker {
+        padding: 0.3rem 0 0;
+    }
+    
+    
+
+
+}
 
 
 
