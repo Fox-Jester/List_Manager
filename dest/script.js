@@ -160,12 +160,12 @@ const App = {
     saveColor() {
         var _a;
         const color = (_a = this.$.page) === null || _a === void 0 ? void 0 : _a.classList.item(1);
-        localStorage.setItem("colorData", color);
+        localStorage.setItem("ColorData", color);
     },
     loadColor() {
         var _a, _b;
-        if (localStorage.getItem("colorData")) {
-            const color = localStorage.getItem("colorData");
+        if (localStorage.getItem("ColorData")) {
+            const color = localStorage.getItem("ColorData");
             (_a = this.$.page) === null || _a === void 0 ? void 0 : _a.classList.remove("color-palette-A");
             (_b = this.$.page) === null || _b === void 0 ? void 0 : _b.classList.add(`${color}`);
         }

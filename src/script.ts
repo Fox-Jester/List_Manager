@@ -205,12 +205,12 @@ const App = {
 
     saveColor(){
         const color = <string>this.$.page?.classList.item(1)
-        localStorage.setItem("colorData", color);
+        localStorage.setItem("ColorData", color);
     },
 
     loadColor(){
-        if(localStorage.getItem("colorData")){
-            const color = localStorage.getItem("colorData");
+        if(localStorage.getItem("ColorData")){
+            const color = localStorage.getItem("ColorData");
             this.$.page?.classList.remove("color-palette-A");
             this.$.page?.classList.add(`${color}`)
 
@@ -442,5 +442,6 @@ const App = {
 
 
 App.init()
+
 
 
