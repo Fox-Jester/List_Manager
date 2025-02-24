@@ -59,6 +59,7 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    background: var(--primary-gradient);
     
    
     
@@ -69,7 +70,6 @@
     width: 100%;
     height: 100%;
     position: absolute;
-    background: var(--primary-gradient);
 
 
 }
@@ -142,7 +142,11 @@
 
 
 
+#content-container{
+    display: flex;
 
+    
+}
 
 
 
@@ -162,9 +166,10 @@
     left: 3rem;
     top: 2rem;
     z-index: 2;
-    padding: 0.2rem 0.5rem 0.5rem;
+    padding: 0.2rem 0.2rem 0.5rem;
     
-    width: 15rem;
+    width: 14rem;
+    
     
 }
 
@@ -191,7 +196,7 @@
 
 .main-tag{
   
-    padding: 0.1rem 0.5rem;
+    padding: 0.1rem 0;
     border-radius: var(--border-size);
     margin-bottom: 0.2rem;
     
@@ -203,8 +208,8 @@
     justify-content: center;
 
   
-    padding: 0.5rem;
-    margin: 0 0.3rem;
+    padding: 0.3rem 0;
+ 
     border-radius: var(--border-size);
 }
 
@@ -249,7 +254,7 @@
 
 #storage-container {
     background-color: rgba(24, 24, 24, 0.5);
-    height: 50vh;
+    height: 60vh;
     
     position: relative;
     margin-top: 1rem;
@@ -312,33 +317,45 @@
 }
 
 
-
+@media screen and (max-width: 1400px){
+    .control-panel {
+       
+        left: 2rem;
+        
+        
+    }
+}
 
 
 @media screen and (max-width:1200px){
     
-    
-    
-    .control-panel {
+    #content-container{
+        align-items: start;
+        height: 85%;
+        width: 95%;
         
-        
-        left: 20%;
-        top: 1rem;
-        
-        
-        width: 13rem;
         
     }
     
+    .page-container:has(.hidden) #content-container{
+        flex-direction: column;
+        
+        height: 95%;
+        width: auto;
+        
+    }
     
+    .control-panel {
+        width: 13rem;
+        position: static;
+        flex-shrink: 0;
+        
+        
+    }
     
     .control-wrapper h1 {
         font-size: 1.6rem;
     }
-    
-    
-    
-    
     
     .btn-box i {
         width: 2.25rem;
@@ -363,21 +380,35 @@
     
 }
 
+
+
 @media screen and (max-width:800px) {
+
+
+    #content-container{
+        align-items: start;
+        height: 80%;
+       
+
+        
+    }
+    
+    .page-container:has(.hidden) #content-container{
+        flex-direction: column;
+        height: auto;
+        height: 95%;
+      
+        
+    }
+    
+
 
     .control-wrapper h1 {
         font-size: 1.6rem;
     }
     
     .control-panel {
-       
-  
-        left: 10%;
-        top: 1rem;
-      
-    
         width: 12.5rem;
-    
     }
 
     .btn-box {
@@ -390,7 +421,7 @@
 
     
 #storage-container {
-    height: 50vh;
+    height: 55vh;
     margin-top: 0.5rem;
 
     
@@ -412,18 +443,109 @@
 
 @media screen and (max-width:600px) {
     
-    .control-panel {
-        
-        left: 2.5%;
+    #content-container{
+        align-items: start;
+       
 
+    }
+    
+    .page-container:has(.hidden) #content-container{
+        flex-direction: column;
+        
+      
         
     }
+    
+    .control-panel {
+      
+        padding: 0.2rem;
+        width: 10rem;
+    }
+    
+    .page-container:has(.hidden) .control-panel{
+        width: 10.5rem;
+    }
+    
+    .control-wrapper h1 {
+        font-size: 1.2rem;
+    }
+    
+    .page-container:has(.hidden) .control-wrapper h1{
+        font-size: 1.6rem;
+    }
+    
+
+    
+    
+    /***BTN-BOX***/
+    
+      .btn-box {
+        padding: 0.1rem 0;
+        
+    }
+        
+    .page-container:has(.hidden) .btn-box{
+        padding: 0.3rem 0;
+        margin: 0;
+
+    }
+    
+    .btn-box span {
+        border-radius: 5px;
+        font-size: 0.7rem;
+        padding: 0.3rem 0.3rem;
+        
+        }
+        
+        .page-container:has(.hidden) .btn-box span{
+            margin: 0 0.2rem;
+            padding: 0.3rem 0.3rem;
+            font-size: 0.7rem;
+            
+            
+            }
+            
+            .btn-box i {
+                border-radius: 5px;
+                width: 2rem;
+                height: 2rem;
+                font-size: 1.4rem;
+                
+                }
+                
+                .page-container:has(.hidden) .btn-box i{
+                width: 2rem;
+                height: 2rem;
+                font-size: 1.4rem;
+        }
+        
+        #storage-container {
+            height: 50vh;
+            margin-top: 0.5rem;
+        
+            
+        }
+ 
 }
 
 @media screen and (max-width:500px) {
+
+      
+    #content-container{
+       
+       
+
+    }
+    
+    .page-container:has(.hidden) #content-container{
+        width: 95%;
+        
+      
+        
+    }
     
     .control-panel {
-        left: 2.5%;
+      
         padding: 0.2rem;
         width: 8rem;
     }
@@ -515,17 +637,19 @@
 
 
 
+
+
 /* LIST ****************/
 
 #list-container{
     z-index: 1;
-    width: 40%;
+    width: 50rem;
     
 
 }
 
 .list {
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
     background-color: lightgray;
     border-radius: var(--border-size);
@@ -742,7 +866,7 @@
     
     #list-container{
         z-index: 1;
-        width: 50%;
+        width: 45rem;
     }
     
     
@@ -753,7 +877,7 @@
     
     #list-container{
         z-index: 1;
-        width: 50%;
+        width: 40rem;
     
     }
     
@@ -764,71 +888,59 @@
 
 
 @media screen and (max-width:1200px){
-
-
-
     
-    #list-container{
-        transform: scale(0.8);
-        margin-left: 20rem;
+    
+   
+    #list-container{   
+        transform: scale(0.9);
+        margin-top: -2rem;
         
-       
-    }
 
-    .page-container {
-        align-items: baseline;
     }
+    
+    
     
     .page-container:has(.hidden) #list-container{
         
-        margin-left: 0;
-        margin-top: 4rem;
-        width: 60%;
+        
+        margin-top: 1rem;
+        width: 45rem;
         transform: scale(1);
         transition: transform 0.5s;
         
     }
-
+    
     .page-container:has(.hidden) {
         
         align-items: center;
         
     }
     
-
-    
     
 }
 
 @media screen and (max-width:800px){
-
-
-
     
-    #list-container{
-        width: 80%;
-        transform: scale(0.7);
-        margin-left: 15rem;
     
-       
+    
+    #list-container{   
+        transform: scale(0.9);
+        
+
     }
+    
     
     .page-container:has(.hidden) #list-container{
         
-        margin-left: 0;
-        margin-top: 4rem;
-        width: 80%;
+        
+        
+        width: 30rem;
         transform: scale(1);
         
     }
     
   
-    
-    .list {
-        border-radius: var(--border-size);
-        width: 100%;
-        z-index: 1;
-    }
+
     
     
    
@@ -912,18 +1024,27 @@
 @media screen and (max-width:600px) {
     
     #list-container{
-        width: 95%;
-        transform: scale(0.7);
-        margin-left: 15rem;
+       
+        transform: scale(0.8);
+        margin-top: -4rem;
+        margin-left: -1rem;
     
        
     }
+
     
+    .task-box {
+        
+        height: 24rem;
+       
+    }
+
+
     .page-container:has(.hidden) #list-container{
         
+        
         margin-left: 0;
-        margin-top: 4rem;
-        width: 95%;
+        width: 30rem;
         transform: scale(1);
         
     }
@@ -931,33 +1052,25 @@
 
 @media screen and (max-width:500px) {
     
-  
+    
 
     #list-container{
-        width: 100%;
-        transform: scale(0.5);
-        margin-left: 8rem;
-    
-        
-        margin-top: 0;
-       
+
+        transform: scale(0.7);
+  
     }
     
     .page-container:has(.hidden) #list-container{
-        margin-top: 0;
-        margin-left: 0;
-        width: 95%;
+
+        align-self: center;
+        width: 20rem;
         transform: scale(1);
         
     }
 
 
         
-    .list {
-        border-radius: var(--border-size);
-        width: 100%;
-        z-index: 1;
-    }
+
     
     
    
@@ -1017,7 +1130,7 @@
     
     .task-box {
         width: 95%;
-        height: 25rem;
+        height: 20rem;
         padding: 0.3rem;
         gap: 0.8rem;
     }
@@ -1066,17 +1179,65 @@
 
 }
 
-@media screen and (max-height: 500px) {
+@media screen and (max-width:425px){
+    .page-container{
+        height: 100%;
+        
+        
+        
+        
+    }
 
+    
+    #list-container{
+        
+        transform: scale(0.5);
+        margin-top: -4rem;
+        margin-left: -3.5rem;
+    }
+    
+    .page-container:has(.hidden) #list-container{
+        
+        align-self: center;
+        width: 19rem;
+        transform: scale(1);
+        
+    }
+}
 
-            
-                .page-container:has(.hidden) .list-container{
-                    margin-top: 3rem;
+@media screen and (max-width: 500px)
+and (orientation: landscape){
+    
+    .page-container:has(.hidden) .control-panel{
+        margin-top: 1rem;
 
-                }
-                .list-container{
-                    margin-top: -3rem;
-                }
+    }
+
+    .control-panel{
+        margin-top: 0;
+    }
+
+    #storage-container {
+        height: 60vh;
+     
+    
+        
+    }
+
+    .page-container{
+        height: 100%;
+        
+        
+    }
+    
+    
+    .page-container:has(.hidden) #content-container{
+
+        margin-bottom: 2rem;
+    }
+        #content-container{
+            margin-top: 2rem;
+    }
 
               }
 

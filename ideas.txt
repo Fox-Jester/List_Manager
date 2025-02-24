@@ -1,7 +1,5 @@
 
 
+switch posistions with flex for main content
 
-
-font padding on mobile
-
-landscape mode f#cked up!
+move control panel 500px styles to 600px
