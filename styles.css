@@ -1066,9 +1066,7 @@
 
 }
 
-@media screen and (min-device-width: 480px) 
-              and (max-device-width: 640px) 
-              and (orientation: landscape) {
+@media screen and (max-height: 500px) {
 
                 .page-container{
                     height: 100vw;
@@ -1080,7 +1078,7 @@
                     height: 100vw;
                     position: absolute;
                     background: var(--primary-gradient);
-                    background: red;
+                 
                 
                 
                 }
