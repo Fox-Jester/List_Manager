@@ -2,4 +2,6 @@
 
 
 
+font padding on mobile
 
+landscape mode f#cked up!

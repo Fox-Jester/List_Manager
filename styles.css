@@ -220,6 +220,7 @@
     border-radius: var(--border-size);
     box-shadow: 0 0 5px black;
     cursor: pointer;
+    text-align: center;
 }
 
 .btn-box span:hover {
@@ -460,6 +461,7 @@
         border-radius: 5px;
         font-size: 0.6rem;
         padding: 0.1rem 0.1rem;
+        
     }
     
     .page-container:has(.hidden) .btn-box span{
@@ -1063,6 +1065,24 @@
 
 
 }
+
+@media screen and (min-device-width: 480px) 
+              and (max-device-width: 640px) 
+              and (orientation: landscape) {
+
+                .page-container{
+                    height: 100vw;
+                }
+
+                .page-container:has(.hidden) .list-container{
+                    margin-top: 3rem;
+
+                }
+                .list-container{
+                    margin-top: -3rem;
+                }
+
+              }
 
 
 
