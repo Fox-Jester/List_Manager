@@ -329,8 +329,11 @@
 
 
 @media screen and (max-width:1200px){
+
+    
     
     #content-container{
+       
         align-items: start;
         height: 85%;
         width: 95%;
@@ -1176,13 +1179,7 @@
 }
 
 @media screen and (max-width:425px){
-    .page-container{
-        height: 100%;
-        
-        
-        
-        
-    }
+   
 
     
     #list-container{
