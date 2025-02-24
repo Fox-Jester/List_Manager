@@ -1,5 +1,4 @@
 
 
-switch posistions with flex for main content
+try for 100% height instead of vh
 
-move control panel 500px styles to 600px
