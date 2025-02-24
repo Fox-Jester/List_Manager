@@ -1072,6 +1072,17 @@
 
                 .page-container{
                     height: 100vw;
+                    
+                }
+
+                .cosmetic-container {
+                    width: 100vh;
+                    height: 100vw;
+                    position: absolute;
+                    background: var(--primary-gradient);
+                    background: red;
+                
+                
                 }
 
                 .page-container:has(.hidden) .list-container{
