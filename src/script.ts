@@ -328,9 +328,9 @@ const App = {
 
 
         list.innerHTML = `<div class="list-top">
-                            <i id="store-list" class="fa-solid fa-box-archive fa-border"></i>
+                            <i id="store-list" class="fa-solid fa-box-archive fa-border" aria-hidden="false"></i>
                             <input class="list-name" type="text" value="${name}" maxlength="40"/>
-                            <i id="list-delete" class="fa-solid fa-x fa-border"></i>
+                            <i id="list-delete" class="fa-solid fa-x fa-border" aria-hidden="false"></i>
                             </div>
                             <div class="list-bottom">
                             <div class="input-group">
