@@ -8,7 +8,7 @@ const App = {
         storageContainer: document.querySelector("#storage-container"),
         listContainer: document.querySelector("#list-container"),
         pageBottom: document.querySelector(".page-bottom"),
-        idCounter: 0
+        idCounter: 0,
     },
     init() {
         this.load();
@@ -81,6 +81,7 @@ const App = {
         <span class="task-tracker"><p><p id="checked-counter">0</p> / <p id="task-counter">0</p> Tasks Completed</p></span>
         </div>
         </div>`;
+        localStorage.setItem("NameData", "List");
         (_a = App.$.listContainer) === null || _a === void 0 ? void 0 : _a.appendChild(list);
         App.applyListListeners();
         App.save();
@@ -106,6 +107,10 @@ const App = {
                 nameInput.blur();
             }
             App.save();
+        });
+        nameInput === null || nameInput === void 0 ? void 0 : nameInput.addEventListener("blur", (e) => {
+            let name = nameInput;
+            localStorage.setItem("NameData", name.value);
         });
         const input = document.querySelector(".input");
         const addBtn = document.querySelector(".add-btn");
@@ -142,6 +147,10 @@ const App = {
         if (localStorage.getItem("storageData")) {
             const html = localStorage.getItem("storageData");
             App.$.storageContainer.innerHTML = html;
+        }
+        if ((localStorage.getItem("NameData")) && (document.querySelector(".list-name"))) {
+            const listName = document.querySelector(".list-name");
+            listName.value = localStorage.getItem("NameData");
         }
         App.loadColor();
         App.taskChecker();
@@ -264,6 +273,7 @@ const App = {
                             </div>
                             </div>`;
         (_a = this.$.listContainer) === null || _a === void 0 ? void 0 : _a.appendChild(list);
+        localStorage.setItem("NameData", name);
         App.taskChecker();
         App.checkboxChecker();
         App.applyListListeners();

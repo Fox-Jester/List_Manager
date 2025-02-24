@@ -17,7 +17,10 @@ const App = {
 
         pageBottom: document.querySelector(".page-bottom"),
 
-        idCounter: 0
+        idCounter: 0,
+
+
+    
     },
 
 
@@ -103,6 +106,7 @@ const App = {
         </div>
         </div>`
 
+        localStorage.setItem("NameData", "List")
         App.$.listContainer?.appendChild(list);
         App.applyListListeners()
         App.save()
@@ -137,7 +141,10 @@ const App = {
             App.save()
         })
 
-
+        nameInput?.addEventListener("blur", (e) => {
+            let name = <HTMLInputElement>nameInput;
+            localStorage.setItem("NameData", name.value);
+        })
 
         const input = document.querySelector<HTMLInputElement>(".input");
         const addBtn = document.querySelector<HTMLButtonElement>(".add-btn");
@@ -180,6 +187,11 @@ const App = {
         if(localStorage.getItem("storageData")){
             const html = <string>localStorage.getItem("storageData")
             App.$.storageContainer!.innerHTML = html
+        }
+
+        if((localStorage.getItem("NameData")) && (document.querySelector(".list-name"))){
+            const listName = <HTMLInputElement>document.querySelector(".list-name");
+            listName.value = localStorage.getItem("NameData")!
         }
 
         App.loadColor()
@@ -343,6 +355,8 @@ const App = {
                             </div>`
 
         this.$.listContainer?.appendChild(list);
+
+        localStorage.setItem("NameData", name)
 
         App.taskChecker()
         App.checkboxChecker()
