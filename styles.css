@@ -688,7 +688,7 @@
     border-radius: var(--border-size);
     height: var(--i-size);
     width: var(--i-size);
-    
+    flex-shrink: 0;
     padding: 0.6rem;
     box-shadow: 0 0 5px black;
     text-align: center;
@@ -1192,10 +1192,20 @@
     .page-container:has(.hidden) #list-container{
         
         align-self: center;
-        width: 19.2rem;
+        width: 18rem;
         transform: scale(1);
         
     }
+
+    .list-name {
+        margin: 0;
+        font-size: 1.2rem;
+        width: 12rem;
+    
+    }
+
+ 
+   
 }
 
 @media screen and (max-height: 500px)
