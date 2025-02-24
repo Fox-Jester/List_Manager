@@ -66,8 +66,8 @@
 }
 
 .cosmetic-container {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     position: absolute;
     background: var(--primary-gradient);
 
@@ -460,13 +460,13 @@
     .btn-box span {
         border-radius: 5px;
         font-size: 0.6rem;
-        padding: 0.1rem 0.1rem;
+        padding: 0.3rem 0.1rem;
         
     }
     
     .page-container:has(.hidden) .btn-box span{
         margin: 0 0.2rem;
-        padding: 0.1rem 0.3rem;
+        padding: 0.3rem 0.3rem;
         font-size: 0.8rem;
         border-radius: var(--border-size);
         
@@ -1068,21 +1068,8 @@
 
 @media screen and (max-height: 500px) {
 
-                .page-container{
-                    height: 100vw;
-                    
-                }
 
-                .cosmetic-container {
-                    width: 100vh;
-                    height: 100vw;
-                    position: absolute;
-                    background: var(--primary-gradient);
-                 
-                
-                
-                }
-
+            
                 .page-container:has(.hidden) .list-container{
                     margin-top: 3rem;
 
