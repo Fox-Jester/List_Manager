@@ -72,6 +72,9 @@
     height: 100%;
     position: fixed;
     background: var(--primary-gradient);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
 
 }
@@ -1181,11 +1184,6 @@
 
 @media screen and (max-width:425px){
 
-    .cosmetic-edge {
-
-        height: 25%;
- 
-    }
 
     
     #list-container{
